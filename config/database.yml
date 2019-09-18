@@ -14,16 +14,16 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: 5
 
-development:
-  <<: *default
-  database: Invoices_development
+# development:
+#   <<: *default
+#   database: Invoices_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -55,9 +55,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: Invoices_test
+# test:
+#   <<: *default
+#   database: Invoices_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -78,10 +78,30 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host:     <%= ENV['RDS_HOSTNAME'] %>
-  port:     <%= ENV['RDS_PORT'] %>
+# production:
+#   <<: *default
+#   database: <%= ENV['RDS_DB_NAME'] %>
+#   username: <%= ENV['RDS_USERNAME'] %>
+#   password: <%= ENV['RDS_PASSWORD'] %>
+#   host:     <%= ENV['RDS_HOSTNAME'] %>
+#   port:     <%= ENV['RDS_PORT'] %>
+
+
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: priority_tasks_development1
+#   host: localhost
+#   pool: 5
+#   username: piyush
+#   password: password
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: invoice
+  pool: 7
+  username: root
+  password: yogesh123
+  host: localhost
